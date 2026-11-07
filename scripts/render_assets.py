@@ -19,8 +19,6 @@ GREY = "#6b7280"
 COOLING_START = 0.35
 COOLING_FULL = 0.25
 BAR_CELLS = 6
-BIG_CAPSULE_X = 560
-BIG_PERCENT_X = 852
 
 FONT = "-apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', Inter, Roboto, sans-serif"
 MONO_DIGITS = "font-variant-numeric: tabular-nums;"
@@ -152,16 +150,11 @@ def hero(theme: Theme) -> str:
     shown = 0.0
     for capsule, duration in frames:
         percent_fill = capsule.percent_color or theme.text
-        # Крупная копия справа вверху красится цветом капсулы, чтобы переход был виден издалека.
-        big_fill = capsule.percent_color or (capsule.color if capsule.filled else theme.dim)
         body.append(
             f'<g opacity="{1 if shown == 0 else 0}">{discrete_show(shown, shown + duration, total)}'
             f"{segments(capsule, theme, capsule_x, footer_y - 10)}"
             f'<text x="{percent_x}" y="{footer_y - 2}" font-family="{FONT}" font-size="13.5" font-weight="500" '
-            f'style="{MONO_DIGITS}" fill="{percent_fill}">{capsule.percent}</text>'
-            f"{segments(capsule, theme, BIG_CAPSULE_X, 58, size=2.4)}"
-            f'<text x="{BIG_PERCENT_X}" y="84" text-anchor="end" font-family="{FONT}" font-size="38" font-weight="650" '
-            f'style="{MONO_DIGITS}" fill="{big_fill}">{capsule.percent}</text></g>'
+            f'style="{MONO_DIGITS}" fill="{percent_fill}">{capsule.percent}</text></g>'
         )
         shown += duration
     body += [
