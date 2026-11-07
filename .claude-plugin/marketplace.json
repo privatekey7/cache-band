@@ -1,0 +1,13 @@
+{
+  "name": "cache-band",
+  "description": "Полоса жизни prompt-кэша для Claude Code",
+  "owner": {
+    "name": "privatekey7"
+  },
+  "plugins": [
+    {
+      "name": "cache-band",
+      "source": "./"
+    }
+  ]
+}

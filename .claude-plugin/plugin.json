@@ -1,0 +1,9 @@
+{
+  "name": "cache-band",
+  "version": "0.1.0",
+  "description": "Полоса под полем ввода: сколько ещё живёт prompt-кэш сессии",
+  "author": { "name": "privatekey7" },
+  "license": "MIT",
+  "repository": "https://github.com/privatekey7/cache-band",
+  "types": "./types/index.d.ts"
+}
